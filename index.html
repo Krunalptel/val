@@ -69,9 +69,35 @@
 <body>
   <div class="card">
       <img src="cute-begging.gif" alt="Us Together" />
-        <h1>Will you be my Valentine? 💕</h1>
-        <div class="buttons">
-                <button id="yesBtn" onclick="sayYes()">Yes</button>
-                <button id="noBtn">No</button>
-              </div>
-      </div>
+         <h1>Will you be my Valentine? 💕</h1>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="sayYes()">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    function moveButton() {
+      const container = document.querySelector(".buttons");
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const newX = Math.random() * maxX;
+      const newY = Math.random() * maxY;
+
+      noBtn.style.left = newX + "px";
+      noBtn.style.top = newY + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveButton);
+    noBtn.addEventListener("mouseover", moveButton);
+
+    function sayYes() {
+      window.location.href = "yes.html";
+    }
+  </script>
+</body>
+</html>
