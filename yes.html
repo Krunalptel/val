@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yay! 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: radial-gradient(circle at top, #ffe6f2, #ff80ab);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      color: #d81b60;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      z-index: 10;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 500px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4081;
+      font-size: 20px;
+      animation: floatUp 4s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Yaaay! You're my Valentine! 💘</h1>
+  <p>
+    Thank you for saying yes. You make my world brighter every single day,
+    and I'm so happy I get to call you mine. Happy Valentine's Day! ❤️
+  </p>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "♥";
+
+      const size = Math.random() * 20 + 15;
+      const left = Math.random() * 100;
+
+      heart.style.left = left + "vw";
+      heart.style.fontSize = size + "px";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
